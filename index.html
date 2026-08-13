@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="dshworks: community workshop for the DeepSeek Harness (dsh) ecosystem. Verified guides, plugin discovery, skills, and dev tooling. Not affiliated with DeepSeek.">
+<link rel="canonical" href="https://dsh.works/">
+<title>dshworks - community workshop for the dsh ecosystem</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1d23;
+    --muted: #5b6270;
+    --line: #e2e5ea;
+    --accent: #4d6bfe;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101216;
+      --fg: #e6e8ec;
+      --muted: #9aa1ad;
+      --line: #2a2e36;
+      --accent: #7b91ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    padding: 3rem 1.25rem 4rem;
+    max-width: 40rem;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  h1 { font-size: 1.6rem; margin: 0 0 0.25rem; }
+  h1 code { font: inherit; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .tagline { margin: 0 0 1rem; color: var(--muted); }
+  .notice {
+    border-left: 3px solid var(--accent);
+    padding: 0.4rem 0.9rem;
+    margin: 1.5rem 0;
+    color: var(--muted);
+  }
+  .notice strong { color: var(--fg); }
+  .cards { list-style: none; margin: 1.5rem 0; padding: 0; display: grid; gap: 0.75rem; }
+  .cards li { border: 1px solid var(--line); border-radius: 8px; padding: 0.8rem 1rem; }
+  .cards .name { font-weight: 600; }
+  .cards .desc { display: block; color: var(--muted); font-size: 0.925rem; }
+  .aside { color: var(--muted); font-size: 0.925rem; }
+  footer {
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.925rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  footer img { display: block; }
+</style>
+</head>
+<body>
+<h1>dshworks</h1>
+<p class="tagline">Community workshop for the DeepSeek Harness (<code>dsh</code>) ecosystem: verified guides, plugin discovery, skills, and dev tooling.</p>
+
+<p class="notice"><strong>Not affiliated with DeepSeek.</strong> The official repo says it best: the harness is "an idea, an official showcase, and a source of inspiration". The ecosystem belongs to the community.</p>
+
+<ul class="cards">
+  <li>
+    <a class="name" href="https://github.com/dshworks/howto-dsh">howto-dsh</a>
+    <span class="desc">Verified field notes: traps, skills, hooks, profiles. Every claim dated and sourced so you can re-verify.</span>
+  </li>
+  <li>
+    <a class="name" href="https://github.com/dshworks/awesome-dsh-plugins">awesome-dsh-plugins</a>
+    <span class="desc">Spam-filtered open-data registry of dsh plugins, bundles, and skills.</span>
+  </li>
+  <li>
+    <a class="name" href="https://github.com/deepseek-ai/deepseek-harness">deepseek-harness</a>
+    <span class="desc">Upstream: the official harness (npm <code>@deepseek-ai/dsh</code>). Developer preview; expect breaking changes.</span>
+  </li>
+</ul>
+
+<p class="aside">Also in the org, private while under construction: <a href="https://github.com/dshworks/handbook">handbook</a> and <a href="https://github.com/dshworks/dsh-workspace">dsh-workspace</a>.</p>
+
+<p class="aside">Shipping a plugin? Add the <a href="https://github.com/topics/dsh-plugin"><code>dsh-plugin</code></a> topic to your repo and it gets picked up by the registry.</p>
+
+<footer>
+  <a href="https://github.com/deepseek-ai/deepseek-harness"><img src="https://img.shields.io/badge/powered__by-dsh-4D6BFE?logo=deepseek" alt="powered by dsh" width="104" height="20"></a>
+  <span><a href="https://github.com/dshworks">github.com/dshworks</a></span>
+</footer>
+</body>
+</html>
