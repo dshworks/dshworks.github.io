@@ -1,4 +1,4 @@
-# dsh.works (dshworks)
+# dshworks
 
 > Community workshop for DeepSeek Harness (dsh), DeepSeek's agent harness (npm `@deepseek-ai/dsh`, developer preview with promised breaking changes). dshworks curates verified field notes, a spam-filtered open-data plugin registry, and a theme registry. Not affiliated with DeepSeek.
 
