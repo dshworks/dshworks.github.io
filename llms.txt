@@ -1,0 +1,21 @@
+# dsh.works (dshworks)
+
+> Community workshop for DeepSeek Harness (dsh), DeepSeek's agent harness (npm `@deepseek-ai/dsh`, developer preview with promised breaking changes). dshworks curates verified field notes, a spam-filtered open-data plugin registry, and a theme registry. Not affiliated with DeepSeek.
+
+dshworks is a GitHub organization at https://github.com/dshworks. The harness itself is upstream at https://github.com/deepseek-ai/deepseek-harness. There is no official plugin marketplace; the official discovery surface is the GitHub topic `dsh-plugin`, and the dshworks registry filters that topic into structured JSON.
+
+## Install dsh
+
+- `npx @deepseek-ai/dsh`
+
+## Org surfaces
+
+- [howto-dsh](https://github.com/dshworks/howto-dsh): verified field notes (traps, skills, hooks, profiles); every claim dated against a specific dsh version with source paths for re-verification
+- [awesome-dsh-plugins](https://github.com/dshworks/awesome-dsh-plugins): spam-filtered plugin registry; machine-readable source of truth at https://raw.githubusercontent.com/dshworks/awesome-dsh-plugins/main/data/plugins.json
+- [awesome-dsh-themes](https://github.com/dshworks/awesome-dsh-themes): registry of dsh themes and `--dsw-*` token skins; data at https://raw.githubusercontent.com/dshworks/awesome-dsh-themes/main/data/themes.json
+- [org profile](https://github.com/dshworks): current repo list with one-line descriptions
+
+## Upstream (official, not ours)
+
+- [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness): the official harness repo, docs, and releases
+- [dsh-plugin topic](https://github.com/topics/dsh-plugin): the official plugin discovery surface

@@ -5,25 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <meta name="robots" content="noindex">
-<title>404 - dshworks</title>
+<title>404 · dsh.works</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234D6BFE'/%3E%3Ctext x='32' y='45' font-family='ui-monospace,monospace' font-size='34' font-weight='700' fill='%23fff' text-anchor='middle'%3Ed%3C/text%3E%3C/svg%3E">
 <style>
+  :root {
+    --bg: #ffffff;
+    --fg: #17181c;
+    --muted: #5c6370;
+    --accent: #4d6bfe;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1014;
+      --fg: #e8eaee;
+      --muted: #99a0ac;
+      --accent: #7c90ff;
+    }
+  }
+  ::selection { background: var(--accent); color: #fff; }
   body {
     margin: 0 auto;
-    padding: 4rem 1.25rem;
+    padding: 4.5rem 1.25rem;
     max-width: 40rem;
-    font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-    background: #ffffff;
-    color: #1a1d23;
+    background: var(--bg);
+    color: var(--fg);
+    font: 17px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   }
-  a { color: #4d6bfe; }
-  @media (prefers-color-scheme: dark) {
-    body { background: #101216; color: #e6e8ec; }
-    a { color: #7b91ff; }
-  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  h1 { font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 0.5rem; }
+  h1 .tld { color: var(--accent); }
+  p { color: var(--muted); }
 </style>
 </head>
 <body>
-<h1>404</h1>
-<p>Nothing here. Back to <a href="/">dshworks</a>.</p>
+<h1>404<span class="tld">.</span></h1>
+<p>Nothing lives at this address. Back to <a href="/">dsh.works</a>.</p>
 </body>
 </html>
