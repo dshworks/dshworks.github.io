@@ -12,7 +12,7 @@ dshworks is a GitHub organization at https://github.com/dshworks. The harness it
 
 - [howto-dsh](https://github.com/dshworks/howto-dsh): verified field notes (traps, skills, hooks, profiles); every claim dated against a specific dsh version with source paths for re-verification
 - [awesome-dsh-plugins](https://github.com/dshworks/awesome-dsh-plugins): spam-filtered plugin registry; machine-readable source of truth at https://raw.githubusercontent.com/dshworks/awesome-dsh-plugins/main/data/plugins.json
-- [awesome-dsh-themes](https://github.com/dshworks/awesome-dsh-themes): registry of dsh themes and `--dsw-*` token skins; data at https://raw.githubusercontent.com/dshworks/awesome-dsh-themes/main/data/themes.json
+- [awesome-dsh-themes](https://github.com/dshworks/awesome-dsh-themes): registry of dsh themes and `--dsw-*` token skins; data at https://raw.githubusercontent.com/dshworks/awesome-dsh-themes/main/data/themes.json; live gallery with in-browser previews at https://dshworks.github.io/awesome-dsh-themes/
 - [org profile](https://github.com/dshworks): current repo list with one-line descriptions
 
 ## Upstream (official, not ours)
