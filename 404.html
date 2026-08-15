@@ -3,43 +3,62 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
 <meta name="robots" content="noindex">
-<title>404 · dshworks</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234D6BFE'/%3E%3Ctext x='32' y='45' font-family='ui-monospace,monospace' font-size='34' font-weight='700' fill='%23fff' text-anchor='middle'%3Ed%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<title>404 · dsh.works</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='4' fill='%23000'/%3E%3Ctext x='32' y='46' font-family='ui-monospace,monospace' font-size='42' font-weight='700' fill='%2300c2e9' text-anchor='middle'%3E%3E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap">
+<script>try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
-  :root {
-    --bg: #ffffff;
-    --fg: #17181c;
-    --muted: #5c6370;
-    --accent: #4d6bfe;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0e1014;
-      --fg: #e8eaee;
-      --muted: #99a0ac;
-      --accent: #7c90ff;
-    }
-  }
-  ::selection { background: var(--accent); color: #fff; }
-  body {
-    margin: 0 auto;
-    padding: 4.5rem 1.25rem;
-    max-width: 40rem;
-    background: var(--bg);
-    color: var(--fg);
-    font: 17px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; text-underline-offset: 3px; }
-  h1 { font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 0.5rem; }
-  h1 .tld { color: var(--accent); }
-  p { color: var(--muted); }
+/* Same tokens as the landing page — see index.html for why each colour is
+ * declared twice. */
+:root {
+  color-scheme: light dark;
+  --bg: #000000;
+  --bg: light-dark(#fbfaf7, #000000);
+  --text: #e8e8e8;
+  --text: light-dark(#17171a, #e8e8e8);
+  --muted: #9a9a9a;
+  --muted: light-dark(#5a5a60, #9a9a9a);
+  --strong: #ffffff;
+  --strong: light-dark(#000000, #ffffff);
+  --cyan: #00c2e9;
+  --cyan: light-dark(#0a6e85, #00c2e9);
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+:root[data-theme="light"] { color-scheme: only light; }
+:root[data-theme="dark"] { color-scheme: only dark; }
+
+body {
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+  max-width: 40rem;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.6 var(--mono);
+  font-variant-ligatures: none;
+}
+a { color: var(--cyan); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; border-radius: 3px; }
+::selection { background: var(--cyan); color: var(--bg); }
+h1 { color: var(--strong); font-size: 2rem; margin: 0 0 0.75rem; letter-spacing: -0.01em; }
+h1 .caret { color: var(--cyan); }
+p { color: var(--muted); margin: 0 0 1rem; }
+nav { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 0.85rem; }
 </style>
 </head>
 <body>
-<h1>404<span class="tld">.</span></h1>
-<p>Nothing lives at this address. Back to <a href="/">dshworks</a>.</p>
+<h1><span class="caret">&gt;</span> 404</h1>
+<p>Nothing lives at this address.</p>
+<nav>
+  <a href="/">dsh.works</a>
+  <a href="https://dshworks.github.io/awesome-dsh-plugins/">plugins</a>
+  <a href="https://dshworks.github.io/awesome-dsh-themes/">themes</a>
+  <a href="https://github.com/dshworks">github</a>
+</nav>
 </body>
 </html>

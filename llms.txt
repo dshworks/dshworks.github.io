@@ -1,21 +1,45 @@
-# dshworks
+# dsh.works
 
-> Community workshop for DeepSeek Harness (dsh), DeepSeek's agent harness (npm `@deepseek-ai/dsh`, developer preview with promised breaking changes). dshworks curates verified field notes, a spam-filtered open-data plugin registry, and a theme registry. Not affiliated with DeepSeek.
+> Community registry for DeepSeek Harness (dsh), DeepSeek's agent harness (npm `@deepseek-ai/dsh`, developer preview with promised breaking changes). dsh.works sweeps the `dsh-plugin` topic, checks each repo for a real install path, and publishes the result as JSON with a schema: 2,757 plugins and 224 themes, every row carrying the date it was checked and the dsh version it was checked against. Rejected candidates are published too, with reasons. Run by the dshworks org. Not affiliated with DeepSeek.
 
-dshworks is a GitHub organization at https://github.com/dshworks. The harness itself is upstream at https://github.com/deepseek-ai/deepseek-harness. There is no official plugin marketplace; the official discovery surface is the GitHub topic `dsh-plugin`, and the dshworks registry filters that topic into structured JSON.
+There is no official plugin marketplace. The official discovery surface is the GitHub topic `dsh-plugin`; this site filters that topic into structured, dated JSON. Everything below is MIT-licensed open data with no key and no rate limit beyond GitHub's.
 
 ## Install dsh
 
-- `npx @deepseek-ai/dsh`
+- `npx @deepseek-ai/dsh web` — Web UI on `http://127.0.0.1:3080`
 
-## Org surfaces
+## Data (fetch these, not the HTML)
 
-- [howto-dsh](https://github.com/dshworks/howto-dsh): verified field notes (traps, skills, hooks, profiles); every claim dated against a specific dsh version with source paths for re-verification
-- [awesome-dsh-plugins](https://github.com/dshworks/awesome-dsh-plugins): spam-filtered plugin registry; machine-readable source of truth at https://raw.githubusercontent.com/dshworks/awesome-dsh-plugins/main/data/plugins.json; entries carry category (form factor), tags (17 functional areas), repo stars, and featured flags; browsable gallery at https://dsh.works/awesome-dsh-plugins/
-- [awesome-dsh-themes](https://github.com/dshworks/awesome-dsh-themes): registry of dsh themes and `--dsw-*` token skins; data at https://raw.githubusercontent.com/dshworks/awesome-dsh-themes/main/data/themes.json; live gallery with in-browser previews at https://dsh.works/awesome-dsh-themes/
-- [org profile](https://github.com/dshworks): current repo list with one-line descriptions
+- [plugins.json](https://dsh.works/awesome-dsh-plugins/plugins.json): every plugin entry. Per-row fields: `name`, `repo`, `path`, `npm`, `description`, `category` (form factor: bundle/plugin/skill/tool/theme), `tags` (17 functional areas), `official`, `status`, `added`, `lastVerified`, `verifiedAgainst` (the dsh release it loaded under), `stars`, `starsUpdated`, `pushedAt`.
+- [plugins stats.json](https://dsh.works/awesome-dsh-plugins/stats.json): counts only, ~150 bytes — registry size, npm-installable count, per-category counts, rejection counts, newest `verifiedAgainst`.
+- [themes.json](https://dsh.works/awesome-dsh-themes/themes.json): every theme, with `preview` (screenshot) and `previewCss` (override sheet the gallery renders live).
+- [themes stats.json](https://dsh.works/awesome-dsh-themes/stats.json): counts only.
+- [rejected.json](https://github.com/dshworks/awesome-dsh-plugins/blob/main/data/rejected.json): what was swept and left out, with a one-line reason each. Rejections of judgment are permanent; rejections of fact carry a `recheckAfter` date and are swept again once it passes.
+- [schema.json](https://github.com/dshworks/awesome-dsh-plugins/blob/main/data/schema.json): the contract every plugin entry validates against.
+- Embeddables: `plugins-embed.js` / `themes-embed.js` set `window.__PLUGINS__` / `window.__THEMES__`.
+
+## Human surfaces
+
+- [dsh.works](https://dsh.works/): what this is and how to query it
+- [the reef](https://dsh.works/awesome-dsh-plugins/): the plugin registry as a filterable gallery
+- [theme gallery](https://dsh.works/awesome-dsh-themes/): themes with in-browser previews
+- [howto-dsh](https://github.com/dshworks/howto-dsh): verified field notes — traps, skills, hooks, profiles. Every claim dated against a specific dsh version with source paths so it can be re-verified.
+
+## Repos
+
+- [awesome-dsh-plugins](https://github.com/dshworks/awesome-dsh-plugins): the plugin registry. `data/plugins.json` is the source of truth; the README and gallery are generated from it. Contribute by PR against the data file, or just tag your repo `dsh-plugin` and the sweep will find it.
+- [awesome-dsh-themes](https://github.com/dshworks/awesome-dsh-themes): the theme registry, same discipline.
+- [howto-dsh](https://github.com/dshworks/howto-dsh): the field notes.
+- [org profile](https://github.com/dshworks): current repo list.
 
 ## Upstream (official, not ours)
 
-- [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness): the official harness repo, docs, and releases
-- [dsh-plugin topic](https://github.com/topics/dsh-plugin): the official plugin discovery surface
+- [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness): the harness itself, its docs and releases
+- [dsh-plugin topic](https://github.com/topics/dsh-plugin): the official discovery surface
+
+## Caveats worth repeating
+
+- An install path was verified, not a codebase. This is not a security review.
+- Git installs execute code at install time, outside any sandbox. Pin a commit.
+- Star counts are a dated snapshot carried for sorting, not a quality opinion.
+- dsh is a developer preview; anything checked against an older release is marked as such rather than quietly refreshed.

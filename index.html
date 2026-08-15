@@ -3,155 +3,528 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)">
-<title>dshworks · community workshop for DeepSeek Harness (dsh)</title>
-<meta name="description" content="Community ecosystem around DeepSeek Harness (dsh): verified field notes, a spam-filtered plugin registry, and theme discovery. Not affiliated with DeepSeek.">
+<title>dsh.works — the DeepSeek Harness registry, as data</title>
+<meta name="description" content="Community registry for DeepSeek Harness (dsh): 2,757 plugins and 224 themes swept from the dsh-plugin topic, checked for a real install path, and published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against. Not affiliated with DeepSeek.">
+<meta name="keywords" content="dsh plugins, deepseek harness plugins, dsh plugin registry, awesome dsh, dsh themes, dsh.bundle, dsh skill, deepseek harness">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://dsh.works/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="dshworks">
-<meta property="og:title" content="dshworks · community workshop for DeepSeek Harness (dsh)">
-<meta property="og:description" content="Community ecosystem around DeepSeek Harness (dsh): verified field notes, a spam-filtered plugin registry, and theme discovery. Not affiliated with DeepSeek.">
+<meta property="og:site_name" content="dsh.works">
+<meta property="og:title" content="dsh.works — the DeepSeek Harness registry, as data">
+<meta property="og:description" content="2,757 plugins and 224 themes for DeepSeek Harness, published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against.">
 <meta property="og:url" content="https://dsh.works/">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234D6BFE'/%3E%3Ctext x='32' y='45' font-family='ui-monospace,monospace' font-size='34' font-weight='700' fill='%23fff' text-anchor='middle'%3Ed%3C/text%3E%3C/svg%3E">
+<meta name="twitter:title" content="dsh.works — the DeepSeek Harness registry, as data">
+<meta name="twitter:description" content="2,757 plugins and 224 themes for DeepSeek Harness, published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='4' fill='%23000'/%3E%3Ctext x='32' y='46' font-family='ui-monospace,monospace' font-size='42' font-weight='700' fill='%2300c2e9' text-anchor='middle'%3E%3E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap">
+<script>try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"WebSite","name":"dsh.works","url":"https://dsh.works/",
+  "description":"Community registry of DeepSeek Harness (dsh) plugins and themes, published as open data."},
+ {"@type":"Organization","name":"dshworks","url":"https://github.com/dshworks",
+  "description":"Community workshop for DeepSeek Harness. Not affiliated with DeepSeek."},
+ {"@type":"Dataset","name":"awesome-dsh-plugins","license":"https://opensource.org/licenses/MIT",
+  "description":"Spam-filtered registry of DeepSeek Harness plugins, bundles and skills, with per-entry verification dates and the dsh version each entry was checked against.",
+  "url":"https://github.com/dshworks/awesome-dsh-plugins",
+  "distribution":[{"@type":"DataDownload","encodingFormat":"application/json",
+   "contentUrl":"https://dsh.works/awesome-dsh-plugins/plugins.json"}]},
+ {"@type":"Dataset","name":"awesome-dsh-themes","license":"https://opensource.org/licenses/MIT",
+  "description":"Registry of DeepSeek Harness themes and --dsw-* token skins, with in-browser previews.",
+  "url":"https://github.com/dshworks/awesome-dsh-themes",
+  "distribution":[{"@type":"DataDownload","encodingFormat":"application/json",
+   "contentUrl":"https://dsh.works/awesome-dsh-themes/themes.json"}]}
+]}
+</script>
 <style>
-  :root {
-    --bg: #ffffff;
-    --fg: #17181c;
-    --muted: #5c6370;
-    --line: #e4e6ea;
-    --card: #fafafb;
-    --accent: #4d6bfe;
+/* dsh.works — same material as thevibeworks.github.io/deepseek-cli and
+ * freeseek.1lm.io: black, one mono face, cyan and pink, 3px corners.
+ *
+ * Every colour is a custom property declared twice — the dark value
+ * alone, then the light-dark() pair. A browser without light-dark()
+ * keeps the dark value and the page still works, because the second
+ * declaration is the one it drops. No colour lives anywhere else. */
+
+:root {
+  color-scheme: light dark;
+
+  --bg: #000000;
+  --bg: light-dark(#fbfaf7, #000000);
+  --surface: #0d0d0d;
+  --surface: light-dark(#f2f1ec, #0d0d0d);
+  --surface-2: #141414;
+  --surface-2: light-dark(#e8e7e0, #141414);
+  --line: #262626;
+  --line: light-dark(#d4d1c7, #262626);
+  --text: #e8e8e8;
+  --text: light-dark(#17171a, #e8e8e8);
+  --muted: #9a9a9a;
+  --muted: light-dark(#5a5a60, #9a9a9a);
+  --strong: #ffffff;
+  --strong: light-dark(#000000, #ffffff);
+
+  /* Accents are not shared between themes: the dark set is tuned for
+   * black and fails 4.5:1 on paper, so the light values are separately
+   * darkened equivalents. */
+  --cyan: #00c2e9;
+  --cyan: light-dark(#0a6e85, #00c2e9);
+  --pink: #e41478;
+  --pink: light-dark(#bd0e60, #e41478);
+  --yellow: #ffd53d;
+  --yellow: light-dark(#7a5200, #ffd53d);
+
+  --masthead-bg: rgba(0, 0, 0, 0.9);
+  --masthead-bg: light-dark(rgba(251, 250, 247, 0.9), rgba(0, 0, 0, 0.9));
+
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --measure: 68ch;
+  --dur-fast: 140ms;
+  --ease: cubic-bezier(0.25, 0, 0.2, 1);
+}
+:root[data-theme="light"] { color-scheme: only light; }
+:root[data-theme="dark"] { color-scheme: only dark; }
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.6 var(--mono);
+  font-variant-ligatures: none;
+}
+
+.wrap { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
+main .wrap > * { max-width: var(--measure); }
+
+a { color: var(--cyan); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; border-radius: 3px; }
+::selection { background: var(--cyan); color: var(--bg); }
+
+h1, h2, h3 { color: var(--strong); line-height: 1.25; font-weight: 700; }
+h1 { font-size: clamp(1.5rem, 4.2vw, 2rem); letter-spacing: -0.01em; margin: 0 0 1rem; }
+h2 {
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em;
+  margin: 3.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--line);
+  max-width: none;
+}
+h3 { font-size: 0.95rem; margin: 0 0 0.4rem; }
+p { margin: 0 0 1rem; }
+.caret { color: var(--cyan); }
+.lede { color: var(--muted); }
+.lede strong { color: var(--text); font-weight: 400; }
+
+/* The whole page is already mono, so inline code needs to be marked, not
+ * boxed — a bordered chip on every other word sets the line-height on its
+ * own and turns prose into a bag of buttons. */
+code {
+  background: var(--surface-2); border-radius: 3px;
+  padding: 0 4px; font-size: 0.95em;
+}
+
+.skip {
+  position: absolute; left: 1.5rem; top: -3rem; z-index: 20;
+  background: var(--cyan); color: var(--bg); padding: 0.4rem 0.7rem; border-radius: 3px;
+}
+.skip:focus { top: 0.5rem; }
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--masthead-bg); backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.masthead .wrap {
+  display: flex; align-items: center; gap: 1rem;
+  padding-top: 0.75rem; padding-bottom: 0.75rem;
+}
+.brand { color: var(--strong); font-weight: 700; white-space: nowrap; }
+.brand:hover { text-decoration: none; }
+.brand .tld { color: var(--muted); font-weight: 400; }
+.bar-end { display: flex; align-items: center; gap: 1rem; margin-left: auto; min-width: 0; }
+.sitenav { display: flex; gap: 1rem; overflow-x: auto; scrollbar-width: none; }
+.sitenav::-webkit-scrollbar { display: none; }
+.sitenav a { color: var(--muted); white-space: nowrap; }
+.sitenav a:hover { color: var(--cyan); }
+.themetoggle {
+  background: none; border: 1px solid var(--line); border-radius: 3px;
+  color: var(--muted); font: inherit; font-size: 0.8rem; padding: 0.15rem 0.5rem;
+  cursor: pointer; white-space: nowrap; transition: border-color var(--dur-fast) var(--ease);
+}
+.themetoggle:hover { border-color: var(--cyan); color: var(--cyan); }
+
+/* ---------- hero ---------- */
+
+.hero { padding: 3.5rem 0 0; }
+.eyebrow { color: var(--pink); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.75rem; }
+
+.stats {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 3px;
+  margin: 1.75rem 0; max-width: none; list-style: none; padding: 0;
+}
+.stats li { background: var(--bg); padding: 0.7rem 0.9rem; }
+.stats .n { display: block; color: var(--cyan); font-size: 1.35rem; font-weight: 700; line-height: 1.2; }
+.stats .k { display: block; color: var(--muted); font-size: 0.75rem; }
+
+.cta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 2rem; }
+.btn {
+  border: 1px solid var(--cyan); border-radius: 3px; padding: 0.45rem 1rem;
+  background: var(--cyan); color: var(--bg); font-weight: 700;
+  transition: opacity var(--dur-fast) var(--ease);
+}
+.btn:hover { text-decoration: none; opacity: 0.85; }
+.btn.alt { background: none; color: var(--cyan); border-color: var(--line); }
+.btn.alt:hover { border-color: var(--cyan); opacity: 1; }
+
+/* ---------- terminal ---------- */
+
+/* A picture of a terminal does not invert when the page does. */
+.term {
+  color-scheme: only dark;
+  border: 1px solid var(--line); border-radius: 3px; background: #0d0d0d;
+  margin: 0 0 1.5rem; overflow: hidden; max-width: none;
+}
+.term-bar {
+  display: flex; align-items: center; gap: 0.4rem;
+  padding: 0.5rem 0.75rem; border-bottom: 1px solid #262626; background: #141414;
+}
+.term-bar .dot { width: 9px; height: 9px; border-radius: 50%; background: #262626; }
+.term-bar .title { color: #9a9a9a; font-size: 0.75rem; margin-left: 0.4rem; }
+.term pre {
+  margin: 0; padding: 0.9rem 1rem; overflow-x: auto;
+  font: 0.82rem/1.65 var(--mono); color: #e8e8e8;
+}
+/* Inline code is a chip; a transcript is not. Without this the chip
+ * styling lands on the whole block and draws a box behind every line. */
+.term pre code { background: none; border: none; padding: 0; font-size: inherit; }
+.term .p { color: #00c2e9; }
+.term .w { color: #ffd53d; }
+.term .k { color: #e41478; }
+.term .c { color: #9a9a9a; }
+
+/* ---------- cards ---------- */
+
+.grid { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: 1px; max-width: none; }
+.grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); background: var(--line); border: 1px solid var(--line); border-radius: 3px; }
+.grid.two > li { background: var(--bg); padding: 1.1rem 1.2rem; }
+.grid p:last-child { margin-bottom: 0; }
+.grid .n { color: var(--pink); font-size: 0.75rem; }
+
+table { border-collapse: collapse; width: 100%; font-size: 0.85rem; }
+.tablewrap { overflow-x: auto; max-width: none; margin: 0 0 1rem; }
+th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 400; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+td code { background: none; border: none; padding: 0; color: var(--cyan); }
+
+ul.plain { list-style: none; padding: 0; margin: 0 0 1rem; }
+ul.plain li { padding-left: 1.2rem; position: relative; margin-bottom: 0.6rem; }
+ul.plain li::before { content: "—"; position: absolute; left: 0; color: var(--muted); }
+
+.note {
+  border-left: 2px solid var(--pink); padding: 0.1rem 0 0.1rem 1rem;
+  color: var(--muted); margin: 0 0 1rem;
+}
+.note strong { color: var(--text); }
+.fine { color: var(--muted); font-size: 0.85rem; }
+
+footer {
+  margin-top: 4rem; border-top: 1px solid var(--line);
+  padding-top: 1.25rem; padding-bottom: 3rem; color: var(--muted); font-size: 0.85rem;
+}
+footer nav { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+
+@media (max-width: 52rem) {
+  .masthead .wrap { flex-wrap: wrap; gap: 0.5rem 1rem; }
+  .bar-end { width: 100%; margin-left: 0; order: 2; }
+  .themetoggle { margin-left: auto; }
+  /* The nav becomes a scrolling strip here. Without a fade at the cut, a
+   * clipped link reads as a bug rather than as "there is more this way". */
+  .sitenav {
+    mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 2rem), transparent 100%);
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0e1014;
-      --fg: #e8eaee;
-      --muted: #99a0ac;
-      --line: #262a32;
-      --card: #14171d;
-      --accent: #7c90ff;
-    }
-  }
-  * { box-sizing: border-box; }
-  ::selection { background: var(--accent); color: #fff; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0 auto;
-    padding: 4.5rem 1.25rem 4rem;
-    max-width: 40rem;
-    background: var(--bg);
-    color: var(--fg);
-    font: 17px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; text-underline-offset: 3px; }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
-  h1 {
-    font-size: 2rem;
-    letter-spacing: -0.02em;
-    margin: 0 0 0.5rem;
-  }
-  h1 .tld { color: var(--accent); }
-  h2 {
-    font-size: 1.05rem;
-    letter-spacing: 0.01em;
-    margin: 3rem 0 1rem;
-  }
-  p { margin: 0 0 1rem; }
-  .tagline { color: var(--muted); margin-bottom: 1.5rem; }
-  .notice {
-    border-left: 3px solid var(--accent);
-    padding: 0.5rem 1rem;
-    margin: 0 0 1rem;
-    color: var(--muted);
-    font-size: 0.95rem;
-  }
-  .notice strong { color: var(--fg); }
-  pre {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 0.9rem 1.1rem;
-    margin: 0 0 0.75rem;
-    overflow-x: auto;
-    font: 0.95rem/1.5 ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
-  }
-  pre .prompt { color: var(--muted); user-select: none; }
-  code { font: 0.92em ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace; }
-  .cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
-  .cards li {
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 0.9rem 1.1rem;
-    transition: border-color 0.15s ease;
-  }
-  .cards li:hover { border-color: var(--accent); }
-  .cards .name { font-weight: 600; }
-  .cards .desc { display: block; color: var(--muted); font-size: 0.95rem; margin-top: 0.15rem; }
-  .fine { color: var(--muted); font-size: 0.95rem; }
-  footer {
-    margin-top: 3.5rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--line);
-    color: var(--muted);
-    font-size: 0.9rem;
-  }
-  footer nav { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid.two { grid-template-columns: 1fr; }
+}
+@media (max-width: 40rem) {
+  body { font-size: 14px; }
+  .hero { padding-top: 2.5rem; }
+}
 </style>
 </head>
 <body>
-<header>
-  <h1>dsh<span class="tld">.works</span></h1>
-  <p class="tagline">The community workshop for DeepSeek Harness (<code>dsh</code>): verified field notes, a spam-filtered plugin registry, and theme discovery.</p>
-  <p class="notice"><strong>Not affiliated with DeepSeek.</strong> dsh is DeepSeek's agent harness; it lives at <a href="https://github.com/deepseek-ai/deepseek-harness">deepseek-ai/deepseek-harness</a> and ships on npm as <code>@deepseek-ai/dsh</code>.</p>
+<a class="skip" href="#main">skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="caret">&gt;</span> dsh<span class="tld">.works</span></a>
+    <div class="bar-end">
+      <nav class="sitenav" aria-label="Sections">
+        <a href="#plugins">plugins</a>
+        <a href="#themes">themes</a>
+        <a href="#notes">notes</a>
+        <a href="#data">data</a>
+        <a href="https://github.com/dshworks">github&nbsp;&#8599;</a>
+      </nav>
+      <button class="themetoggle" id="theme-toggle" type="button" hidden
+              aria-label="Theme: auto. Click to change.">theme:&nbsp;<span class="val">auto</span></button>
+    </div>
+  </div>
 </header>
 
-<main>
-  <section aria-labelledby="start">
-    <h2 id="start">Start in 60 seconds</h2>
-    <pre><span class="prompt">$ </span>npx @deepseek-ai/dsh</pre>
-    <p class="fine">dsh is a developer preview and the team promises breaking changes. Read the <a href="https://github.com/dshworks/howto-dsh">field notes</a> before you hit the traps.</p>
-  </section>
+<main id="main">
+<div class="wrap">
 
-  <section aria-labelledby="repos">
-    <h2 id="repos">What lives here</h2>
-    <ul class="cards">
-      <li>
-        <a class="name" href="https://github.com/dshworks/howto-dsh">howto-dsh</a>
-        <span class="desc">Verified field notes: traps, skills, hooks, profiles. Every claim is dated against a specific dsh version, with source paths so you can re-verify it yourself.</span>
-      </li>
-      <li>
-        <a class="name" href="https://github.com/dshworks/awesome-dsh-plugins">awesome-dsh-plugins</a>
-        <span class="desc">A spam-filtered, open-data plugin registry. <code>plugins.json</code> is the source of truth and the README is rendered from it; build on the JSON directly. Or browse <a href="https://dsh.works/awesome-dsh-plugins/">the reef</a> — the same registry as a filterable gallery.</span>
-      </li>
-      <li>
-        <a class="name" href="https://github.com/dshworks/awesome-dsh-themes">awesome-dsh-themes</a>
-        <span class="desc">A registry of dsh themes and <code>--dsw-*</code> token skins, data-first like its sister registry. Browse the <a href="https://dsh.works/awesome-dsh-themes/">live gallery</a> — themes with a CSS sheet render right in the page.</span>
-      </li>
-      <li>
-        <a class="name" href="https://github.com/deepseek-ai/deepseek-harness">deepseek-harness</a>
-        <span class="desc">Upstream: the official harness itself. Start there for docs, releases, and the source of everything the notes here verify against.</span>
-      </li>
-    </ul>
-    <p class="fine" style="margin-top: 0.75rem;">Also in the org: <code>handbook</code>, an unofficial archive of link extracts and transcripts. It is private while it gets cleaned up for publication.</p>
-  </section>
+<section class="hero">
+  <p class="eyebrow">community registry &middot; not affiliated with DeepSeek</p>
+  <h1>The dsh ecosystem, as data you can query</h1>
+  <p class="lede">DeepSeek Harness ships no plugin marketplace, so the ecosystem
+  lives scattered across a GitHub topic that anyone can post to. This sweeps that
+  topic daily, checks each repo for a <strong>real install path</strong>, and
+  publishes the result as JSON with a schema &ndash; every row carrying the date
+  it was checked and the dsh version it was checked against. The lists are
+  readable. The data is the point.</p>
 
-  <section aria-labelledby="authors">
-    <h2 id="authors">Shipping a plugin?</h2>
-    <p>Tag your repo with the <a href="https://github.com/topics/dsh-plugin"><code>dsh-plugin</code></a> topic. There is no official marketplace; that topic is the official discovery surface, and it is what the <a href="https://github.com/dshworks/awesome-dsh-plugins">registry</a> watches.</p>
-  </section>
+  <ul class="stats" id="stats">
+    <li><span class="n" data-stat="plugins">2,757</span><span class="k">plugins, bundles &amp; skills</span></li>
+    <li><span class="n" data-stat="themes">224</span><span class="k">themes &amp; token skins</span></li>
+    <li><span class="n" data-stat="rejected">849</span><span class="k">rejections, published</span></li>
+    <li><span class="n" data-stat="verifiedAgainst">rc.6</span><span class="k">dsh version checked</span></li>
+  </ul>
+  <p class="fine" id="stats-note">Read live from the registries&rsquo; own
+  <a href="/awesome-dsh-plugins/stats.json">stats.json</a>; last sweep
+  <span data-stat="updated">2026-08-15</span>. This page has no numbers of its own.</p>
+
+  <div class="cta">
+    <a class="btn" href="/awesome-dsh-plugins/">browse plugins</a>
+    <a class="btn alt" href="/awesome-dsh-themes/">browse themes</a>
+    <a class="btn alt" href="https://github.com/dshworks/howto-dsh">field notes</a>
+    <a class="btn alt" href="#data">the JSON</a>
+  </div>
+</section>
+
+<div class="term">
+  <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="title">memory plugins, on npm, by stars &middot; run 2026-08-15</span></div>
+<pre><code><span class="p">$</span> curl -s https://dsh.works/awesome-dsh-plugins/plugins.json \
+    | jq -r <span class="w">'.plugins[] | select(.tags[]?=="memory" and .npm)</span>
+<span class="w">        | "\(.stars)\t\(.npm)\t\(.verifiedAgainst)"'</span> <span class="k">|</span> sort -rn <span class="k">|</span> head -4
+
+<span class="c">44   @zseven-w/dsh-noema               0.1.0-rc.6
+42   dsh-context                       0.1.0-rc.6
+6    dsh-hxyz-archived-conversations   0.1.0-rc.6
+6    dsh-continual-evolve              0.1.0-rc.6</span></code></pre>
+</div>
+
+<p class="fine">A README cannot answer that question, and a scrape with no schema
+cannot be trusted to. Both registries also ship an embeddable
+<code>*-embed.js</code> if you would rather not parse anything at all.</p>
+
+<h2 id="why">Why another list</h2>
+
+<ul class="grid two">
+  <li>
+    <p class="n">01</p>
+    <h3>Dated, or it does not count</h3>
+    <p>Every entry carries <code>lastVerified</code> and
+    <code>verifiedAgainst</code> &ndash; the exact dsh release it loaded under.
+    The harness is a developer preview that promises breaking changes and has
+    already removed one manifest format with no migration. An undated
+    &ldquo;works with dsh&rdquo; is a rumour.</p>
+  </li>
+  <li>
+    <p class="n">02</p>
+    <h3>The rejections are published too</h3>
+    <p><span data-stat="rejected">849</span> repos were swept and left out, each
+    with a one-line reason in
+    <a href="https://github.com/dshworks/awesome-dsh-plugins/blob/main/data/rejected.json">rejected.json</a>.
+    Rejections of judgment are permanent; rejections of fact carry a
+    <code>recheckAfter</code> date and get swept again, so shipping a manifest
+    late is not a life sentence. A list that hides its cutting-room floor is
+    asking you to take curation on faith.</p>
+  </li>
+  <li>
+    <p class="n">03</p>
+    <h3>Themes you can actually see</h3>
+    <p><span data-stat="preview">145</span> of
+    <span data-stat="themes">224</span> themes carry a real screenshot, and
+    <span data-stat="previewCss">39</span> ship a CSS override sheet that the
+    <a href="/awesome-dsh-themes/">gallery renders live</a>
+    &ndash; the dsh Web UI chrome, in the page, wearing that theme. Picking a
+    skin from a repo name is guessing.</p>
+  </li>
+  <li>
+    <p class="n">04</p>
+    <h3>Notes that name the file</h3>
+    <p><a href="https://github.com/dshworks/howto-dsh">howto-dsh</a> documents the
+    traps &ndash; dead manifest formats, patch layers that replace rather than
+    merge, git installs that execute code outside any sandbox &ndash; and every
+    claim cites a source path in the harness repo so you can re-verify it instead
+    of believing us.</p>
+  </li>
+</ul>
+
+<h2 id="plugins">The plugin registry</h2>
+<p><a href="https://github.com/dshworks/awesome-dsh-plugins">awesome-dsh-plugins</a>
+sorts <span data-stat="plugins">2,757</span> entries by form factor
+(<code>bundle</code>, <code>plugin</code>, <code>skill</code>, <code>tool</code>)
+and by <span data-stat="tags">17</span> functional tags, with
+<span data-stat="npm">579</span> installable straight from npm.
+<a href="/awesome-dsh-plugins/">The reef</a> is the same
+registry as a filterable gallery.</p>
+<p>The gate, in one line: a real install path &ndash; a <code>dsh.bundle</code>
+manifest, a published npm package, or a <code>SKILL.md</code> layout dsh actually
+discovers &ndash; not a renamed template fork. A scheduled sweep queues new finds
+for review; nothing enters the registry unreviewed.</p>
+
+<h2 id="themes">The theme registry</h2>
+<p><a href="https://github.com/dshworks/awesome-dsh-themes">awesome-dsh-themes</a>
+covers ThemeRuntime packages, <code>--dsw-*</code> token overrides, and skins that
+restyle the dsh Web UI. Same schema discipline, same dated verification, plus
+previews. <code>previewCss</code> on an entry is what puts it in the live window.</p>
+
+<h2 id="notes">The field notes</h2>
+<p><a href="https://github.com/dshworks/howto-dsh">howto-dsh</a> is what the
+registry data cannot tell you: how composition actually works, which tutorials are
+already wrong, and where the harness will bite. Everything is dated against a
+specific release, because nothing here is guaranteed past the version it was
+verified against &ndash; and the official docs are the place for stable
+reference.</p>
+
+<h2 id="data">Use it as an API</h2>
+<p>Open data, MIT, no key, no rate limit beyond GitHub&rsquo;s own. The JSON is
+the source of truth; every README and gallery on this site is generated from it.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>URL</th><th>What</th></tr></thead>
+<tbody>
+<tr><td><code><a href="/awesome-dsh-plugins/plugins.json">dsh.works/awesome-dsh-plugins/plugins.json</a></code></td><td>Every plugin entry, with schema fields.</td></tr>
+<tr><td><code><a href="/awesome-dsh-plugins/stats.json">dsh.works/awesome-dsh-plugins/stats.json</a></code></td><td>Counts only, for a status line or a badge.</td></tr>
+<tr><td><code><a href="https://github.com/dshworks/awesome-dsh-plugins/blob/main/data/rejected.json">…/data/rejected.json</a></code></td><td>What was left out, why, and when it gets rechecked.</td></tr>
+<tr><td><code><a href="https://github.com/dshworks/awesome-dsh-plugins/blob/main/data/schema.json">…/data/schema.json</a></code></td><td>The contract every entry validates against.</td></tr>
+<tr><td><code><a href="/awesome-dsh-themes/themes.json">dsh.works/awesome-dsh-themes/themes.json</a></code></td><td>Every theme, with preview and CSS pointers.</td></tr>
+<tr><td><code><a href="/llms.txt">dsh.works/llms.txt</a></code></td><td>The same map, written for agents.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="ship">Shipping a plugin?</h2>
+<p>Tag the repo with the
+<a href="https://github.com/topics/dsh-plugin"><code>dsh-plugin</code></a> topic.
+There is no official marketplace; that topic is the official discovery surface
+and it is what the sweep watches &ndash; so tagging is enough to be found, no PR
+required. If you want to land faster or fix a wrong row, open a PR against
+<a href="https://github.com/dshworks/awesome-dsh-plugins/blob/main/data/plugins.json"><code>data/plugins.json</code></a>;
+the README regenerates itself.</p>
+
+<h2 id="honest">What this is not</h2>
+<ul class="plain">
+  <li><strong>Not official.</strong> dsh is DeepSeek&rsquo;s agent harness, at
+  <a href="https://github.com/deepseek-ai/deepseek-harness">deepseek-ai/deepseek-harness</a>
+  and on npm as <code>@deepseek-ai/dsh</code>. This site is community-run and
+  unaffiliated; the harness README calls itself an idea and a showcase, and the
+  ecosystem belongs to whoever builds in it.</li>
+  <li><strong>Not a security review.</strong> An install path was verified, not a
+  codebase. Git installs run code on your machine at install time, outside any
+  sandbox &ndash; pin a commit, read the <code>prepare</code> script.</li>
+  <li><strong>Not a quality ranking.</strong> Star counts are a dated snapshot of
+  a repo&rsquo;s popularity, carried so you can sort; they are not an opinion.</li>
+  <li><strong>Not eternal.</strong> Preview software moves weekly. Anything
+  checked against an older release is marked as such rather than quietly
+  refreshed.</li>
+</ul>
+
+<p class="note"><strong>Start here:</strong> <code>npx @deepseek-ai/dsh web</code>
+brings the Web UI up on <code>127.0.0.1:3080</code>. Then read the
+<a href="https://github.com/dshworks/howto-dsh">field notes</a> before you hit the
+traps.</p>
+
+</div>
 </main>
 
 <footer>
-  <nav>
-    <a href="https://github.com/dshworks">github.com/dshworks</a>
-    <a href="https://github.com/deepseek-ai/deepseek-harness">upstream</a>
-    <a href="/llms.txt">llms.txt</a>
-  </nav>
-  <p style="margin: 0;">Community-run. Not affiliated with DeepSeek.</p>
+  <div class="wrap">
+    <nav>
+      <a href="https://github.com/dshworks">github.com/dshworks</a>
+      <a href="https://github.com/deepseek-ai/deepseek-harness">upstream</a>
+      <a href="https://github.com/topics/dsh-plugin">dsh-plugin topic</a>
+      <a href="/llms.txt">llms.txt</a>
+    </nav>
+    <p style="margin:0">Community-run and MIT-licensed. Not affiliated with DeepSeek.</p>
+  </div>
 </footer>
+
+<script>
+// Theme: auto follows the OS, the toggle pins one. Three states, so the
+// control says which one it is in rather than implying it with an icon.
+(function () {
+  var b = document.getElementById('theme-toggle');
+  if (!b) return;
+  var order = ['auto', 'light', 'dark'];
+  var read = function () {
+    try { return localStorage.getItem('theme') || 'auto'; } catch (e) { return 'auto'; }
+  };
+  var paint = function (v) {
+    if (v === 'auto') delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = v;
+    b.querySelector('.val').textContent = v;
+    b.setAttribute('aria-label', 'Theme: ' + v + '. Click to change.');
+  };
+  b.hidden = false;
+  paint(read());
+  b.addEventListener('click', function () {
+    var next = order[(order.indexOf(read()) + 1) % order.length];
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    paint(next);
+  });
+})();
+
+// The numbers on this page come from the registries themselves, not from
+// whatever was true when the HTML was written. Two ~150-byte files, not
+// the 1.6MB of plugin data. The markup ships the last known values, so a
+// failed fetch or JS off leaves a slightly stale page rather than a
+// broken one — which is also why nothing here writes an empty string.
+(function () {
+  var sources = [
+    '/awesome-dsh-plugins/stats.json',
+    '/awesome-dsh-themes/stats.json'
+  ];
+  var nf = new Intl.NumberFormat('en-US');
+  var put = function (key, value) {
+    var els = document.querySelectorAll('[data-stat="' + key + '"]');
+    for (var i = 0; i < els.length; i++) els[i].textContent = value;
+  };
+  Promise.all(sources.map(function (u) {
+    return fetch(u, { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+  })).then(function (all) {
+    var merged = {}, newest = null;
+    all.forEach(function (s) {
+      if (!s) return;
+      for (var k in s) if (typeof s[k] === 'number') merged[k] = s[k];
+      if (s.updated && (!newest || s.updated > newest)) newest = s.updated;
+      // Both registries verify against the same harness; keep the higher.
+      if (s.verifiedAgainst && (!merged.verifiedAgainst || s.verifiedAgainst > merged.verifiedAgainst)) {
+        merged.verifiedAgainst = s.verifiedAgainst;
+      }
+    });
+    for (var k in merged) {
+      if (k === 'verifiedAgainst') put(k, String(merged[k]).replace(/^\d+\.\d+\.\d+-/, ''));
+      else put(k, nf.format(merged[k]));
+    }
+    if (newest) put('updated', newest);
+  });
+})();
+</script>
 </body>
 </html>
