@@ -23,7 +23,7 @@ There is no official plugin marketplace. The official discovery surface is the G
 - [dsh.works](https://dsh.works/): what this is and how to query it
 - [the reef](https://dsh.works/awesome-dsh-plugins/): the plugin registry as a filterable gallery
 - [theme gallery](https://dsh.works/awesome-dsh-themes/): themes with in-browser previews
-- [howto-dsh](https://github.com/dshworks/howto-dsh): verified field notes — traps, skills, hooks, profiles. Every claim dated against a specific dsh version with source paths so it can be re-verified.
+- [howto-dsh](https://github.com/dshworks/howto-dsh): verified field notes and tutorials, English and 中文. Every claim dated against a specific dsh version with source paths so it can be re-verified. Two tracks so far: `start/` (first hour; coming from Claude Code or Codex) and `fix/` (one reproduced symptom per page: `AggregateError` on boot, `/api/*` returning 403).
 
 ## Repos
 
