@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>dsh.works — the DeepSeek Harness registry, as data</title>
-<meta name="description" content="Community registry for DeepSeek Harness (dsh): 2,757 plugins and 224 themes swept from the dsh-plugin topic, checked for a real install path, and published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against. Not affiliated with DeepSeek.">
+<meta name="description" content="Community registry for DeepSeek Harness (dsh): 5,173 plugins and 224 themes swept from the dsh-plugin topic, checked for a real install path, and published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against. Not affiliated with DeepSeek.">
 <meta name="keywords" content="dsh plugins, deepseek harness plugins, dsh plugin registry, awesome dsh, dsh themes, dsh.bundle, dsh skill, deepseek harness">
 <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
@@ -12,11 +12,11 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="dsh.works">
 <meta property="og:title" content="dsh.works — the DeepSeek Harness registry, as data">
-<meta property="og:description" content="2,757 plugins and 224 themes for DeepSeek Harness, published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against.">
+<meta property="og:description" content="5,173 plugins and 224 themes for DeepSeek Harness, published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against.">
 <meta property="og:url" content="https://dsh.works/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dsh.works — the DeepSeek Harness registry, as data">
-<meta name="twitter:description" content="2,757 plugins and 224 themes for DeepSeek Harness, published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against.">
+<meta name="twitter:description" content="5,173 plugins and 224 themes for DeepSeek Harness, published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='4' fill='%23000'/%3E%3Ctext x='32' y='46' font-family='ui-monospace,monospace' font-size='42' font-weight='700' fill='%2300c2e9' text-anchor='middle'%3E%3E%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -274,6 +274,7 @@ footer nav { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 0.5rem
         <a href="#plugins">plugins</a>
         <a href="#themes">themes</a>
         <a href="#notes">notes</a>
+        <a href="#ours">ours</a>
         <a href="#data">data</a>
         <a href="https://github.com/dshworks">github&nbsp;&#8599;</a>
       </nav>
@@ -297,9 +298,9 @@ footer nav { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 0.5rem
   readable. The data is the point.</p>
 
   <ul class="stats" id="stats">
-    <li><span class="n" data-stat="plugins">2,757</span><span class="k">plugins, bundles &amp; skills</span></li>
+    <li><span class="n" data-stat="plugins">5,173</span><span class="k">plugins, bundles &amp; skills</span></li>
     <li><span class="n" data-stat="themes">224</span><span class="k">themes &amp; token skins</span></li>
-    <li><span class="n" data-stat="rejected">849</span><span class="k">rejections, published</span></li>
+    <li><span class="n" data-stat="rejected">1,202</span><span class="k">rejections, published</span></li>
     <li><span class="n" data-stat="verifiedAgainst">rc.6</span><span class="k">dsh version checked</span></li>
   </ul>
   <p class="fine" id="stats-note">Read live from the registries&rsquo; own
@@ -345,7 +346,7 @@ cannot be trusted to. Both registries also ship an embeddable
   <li>
     <p class="n">02</p>
     <h3>The rejections are published too</h3>
-    <p><span data-stat="rejected">849</span> repos were swept and left out, each
+    <p><span data-stat="rejected">1,202</span> repos were swept and left out, each
     with a one-line reason in
     <a href="https://github.com/dshworks/awesome-dsh-plugins/blob/main/data/rejected.json">rejected.json</a>.
     Rejections of judgment are permanent; rejections of fact carry a
@@ -376,10 +377,10 @@ cannot be trusted to. Both registries also ship an embeddable
 
 <h2 id="plugins">The plugin registry</h2>
 <p><a href="https://github.com/dshworks/awesome-dsh-plugins">awesome-dsh-plugins</a>
-sorts <span data-stat="plugins">2,757</span> entries by form factor
+sorts <span data-stat="plugins">5,173</span> entries by form factor
 (<code>bundle</code>, <code>plugin</code>, <code>skill</code>, <code>tool</code>)
 and by <span data-stat="tags">17</span> functional tags, with
-<span data-stat="npm">579</span> installable straight from npm.
+<span data-stat="npm">584</span> installable straight from npm.
 <a href="/awesome-dsh-plugins/">The reef</a> is the same
 registry as a filterable gallery.</p>
 <p>The gate, in one line: a real install path &ndash; a <code>dsh.bundle</code>
@@ -400,6 +401,29 @@ already wrong, and where the harness will bite. Everything is dated against a
 specific release, because nothing here is guaranteed past the version it was
 verified against &ndash; and the official docs are the place for stable
 reference.</p>
+
+<h2 id="ours">What we ship ourselves</h2>
+<p>Two plugins, in the registry on the same terms as everyone else&rsquo;s &ndash;
+same schema, same proof file, same verified-against date. Reading five thousand
+plugins taught us what was missing.</p>
+
+<ul class="grid two">
+  <li>
+    <p class="n">cost</p>
+    <h3><a href="/dsh-meter/">dsh-meter</a></h3>
+    <p>DeepSeek bills by the hour now. One line under the composer: what this
+    session cost, which tariff is running, how long until it flips, and the
+    balance behind it. Both published rate cards, priced at dispatch time.
+    <a href="/dsh-meter/">The site runs the tariff clock live</a>.</p>
+  </li>
+  <li>
+    <p class="n">unattended</p>
+    <h3><a href="https://github.com/dshworks/dsh-watch">dsh-watch</a></h3>
+    <p>Background stream listeners that wake the agent: matching lines from a
+    command or a growing file arrive as batched, budgeted notices &ndash; plus a
+    daemon host, because no stock dsh surface keeps an agent standing.</p>
+  </li>
+</ul>
 
 <h2 id="data">Use it as an API</h2>
 <p>Open data, MIT, no key, no rate limit beyond GitHub&rsquo;s own. The JSON is

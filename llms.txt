@@ -1,6 +1,6 @@
 # dsh.works
 
-> Community registry for DeepSeek Harness (dsh), DeepSeek's agent harness (npm `@deepseek-ai/dsh`, developer preview with promised breaking changes). dsh.works sweeps the `dsh-plugin` topic, checks each repo for a real install path, and publishes the result as JSON with a schema: 2,757 plugins and 224 themes, every row carrying the date it was checked and the dsh version it was checked against. Rejected candidates are published too, with reasons. Run by the dshworks org. Not affiliated with DeepSeek.
+> Community registry for DeepSeek Harness (dsh), DeepSeek's agent harness (npm `@deepseek-ai/dsh`, developer preview with promised breaking changes). dsh.works sweeps the `dsh-plugin` topic, checks each repo for a real install path, and publishes the result as JSON with a schema: 5,173 plugins and 224 themes, every row carrying the date it was checked and the dsh version it was checked against. Rejected candidates are published too, with reasons. Run by the dshworks org. Not affiliated with DeepSeek.
 
 There is no official plugin marketplace. The official discovery surface is the GitHub topic `dsh-plugin`; this site filters that topic into structured, dated JSON. Everything below is MIT-licensed open data with no key and no rate limit beyond GitHub's.
 
