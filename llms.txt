@@ -1,6 +1,6 @@
 # dsh.works
 
-> Community registry for DeepSeek Harness (dsh), DeepSeek's agent harness (npm `@deepseek-ai/dsh`, developer preview with promised breaking changes). dsh.works sweeps the `dsh-plugin` topic, checks each repo for a real install path, and publishes the result as JSON with a schema: 5,173 plugins and 224 themes, every row carrying the date it was checked and the dsh version it was checked against. Rejected candidates are published too, with reasons. Run by the dshworks org. Not affiliated with DeepSeek.
+> Community registry for DeepSeek Harness (dsh), DeepSeek's agent harness (npm `@deepseek-ai/dsh`, developer preview with promised breaking changes). dsh.works sweeps the `dsh-plugin` topic, checks each repo for a real install path, and publishes the result as JSON with a schema: 6,290 plugins and 325 themes, every row carrying the date it was checked and the dsh version it was checked against. Rejected candidates are published too, with reasons. Run by the dshworks org. Not affiliated with DeepSeek.
 
 There is no official plugin marketplace. The official discovery surface is the GitHub topic `dsh-plugin`; this site filters that topic into structured, dated JSON. Everything below is MIT-licensed open data with no key and no rate limit beyond GitHub's.
 
@@ -10,9 +10,9 @@ There is no official plugin marketplace. The official discovery surface is the G
 
 ## Data (fetch these, not the HTML)
 
-- [plugins.json](https://dsh.works/awesome-dsh-plugins/plugins.json): every plugin entry. Per-row fields: `name`, `repo`, `path`, `npm`, `description`, `category` (form factor: bundle/plugin/skill/tool/theme), `tags` (17 functional areas), `official`, `status`, `added`, `lastVerified`, `verifiedAgainst` (the dsh release it loaded under), `stars`, `starsUpdated`, `pushedAt`.
+- [plugins.json](https://dsh.works/awesome-dsh-plugins/plugins.json): every plugin entry. Per-row fields: `name`, `repo`, `path`, `npm`, `description`, `evidence` (the `path#key` of the file on the repo's default branch that proves the install path — open it and check), `category` (form factor: bundle/plugin/skill/tool/theme), `tags` (17 functional areas), `official`, `status`, `added`, `lastVerified`, `verifiedAgainst` (the dsh release it loaded under), `stars`, `starsUpdated`, `pushedAt`.
 - [plugins stats.json](https://dsh.works/awesome-dsh-plugins/stats.json): counts only, ~150 bytes — registry size, npm-installable count, per-category counts, rejection counts, newest `verifiedAgainst`.
-- [themes.json](https://dsh.works/awesome-dsh-themes/themes.json): every theme, with `preview` (screenshot) and `previewCss` (override sheet the gallery renders live).
+- [themes.json](https://dsh.works/awesome-dsh-themes/themes.json): every theme, with `evidence` (the file proving the restyle path), `preview` (screenshot) and `previewCss` (override sheet the gallery renders live).
 - [themes stats.json](https://dsh.works/awesome-dsh-themes/stats.json): counts only.
 - [rejected.json](https://github.com/dshworks/awesome-dsh-plugins/blob/main/data/rejected.json): what was swept and left out, with a one-line reason each. Rejections of judgment are permanent; rejections of fact carry a `recheckAfter` date and are swept again once it passes.
 - [schema.json](https://github.com/dshworks/awesome-dsh-plugins/blob/main/data/schema.json): the contract every plugin entry validates against.

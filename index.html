@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>dsh.works — the DeepSeek Harness registry, as data</title>
-<meta name="description" content="Community registry for DeepSeek Harness (dsh): 5,173 plugins and 224 themes swept from the dsh-plugin topic, checked for a real install path, and published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against. Not affiliated with DeepSeek.">
+<meta name="description" content="Community registry for DeepSeek Harness (dsh): 6,290 plugins and 325 themes swept from the dsh-plugin topic, checked for a real install path, and published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against. Not affiliated with DeepSeek.">
 <meta name="keywords" content="dsh plugins, deepseek harness plugins, dsh plugin registry, awesome dsh, dsh themes, dsh.bundle, dsh skill, deepseek harness">
 <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
@@ -12,11 +12,11 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="dsh.works">
 <meta property="og:title" content="dsh.works — the DeepSeek Harness registry, as data">
-<meta property="og:description" content="5,173 plugins and 224 themes for DeepSeek Harness, published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against.">
+<meta property="og:description" content="6,290 plugins and 325 themes for DeepSeek Harness, published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against.">
 <meta property="og:url" content="https://dsh.works/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dsh.works — the DeepSeek Harness registry, as data">
-<meta name="twitter:description" content="5,173 plugins and 224 themes for DeepSeek Harness, published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against.">
+<meta name="twitter:description" content="6,290 plugins and 325 themes for DeepSeek Harness, published as JSON with a schema. Every row dated and stamped with the dsh version it was checked against.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='4' fill='%23000'/%3E%3Ctext x='32' y='46' font-family='ui-monospace,monospace' font-size='42' font-weight='700' fill='%2300c2e9' text-anchor='middle'%3E%3E%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,6 +130,9 @@ p { margin: 0 0 1rem; }
 code {
   background: var(--surface-2); border-radius: 3px;
   padding: 0 4px; font-size: 0.95em;
+  /* A path#key receipt is longer than a grid card is wide. Let it break
+   * rather than run off the edge — a proof you cannot read is not one. */
+  overflow-wrap: anywhere;
 }
 
 .skip {
@@ -219,6 +222,10 @@ code {
 .grid { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: 1px; max-width: none; }
 .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); background: var(--line); border: 1px solid var(--line); border-radius: 3px; }
 .grid.two > li { background: var(--bg); padding: 1.1rem 1.2rem; }
+/* The 1px gap is the container colour showing through, so an odd card count
+ * leaves a solid block where a card should be — it reads as broken, not as
+ * space. The odd one out takes the whole row. */
+.grid.two > li:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .grid p:last-child { margin-bottom: 0; }
 .grid .n { color: var(--pink); font-size: 0.75rem; }
 
@@ -298,14 +305,14 @@ footer nav { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 0.5rem
   readable. The data is the point.</p>
 
   <ul class="stats" id="stats">
-    <li><span class="n" data-stat="plugins">5,173</span><span class="k">plugins, bundles &amp; skills</span></li>
-    <li><span class="n" data-stat="themes">224</span><span class="k">themes &amp; token skins</span></li>
-    <li><span class="n" data-stat="rejected">1,202</span><span class="k">rejections, published</span></li>
+    <li><span class="n" data-stat="plugins">6,290</span><span class="k">plugins, bundles &amp; skills</span></li>
+    <li><span class="n" data-stat="themes">325</span><span class="k">themes &amp; token skins</span></li>
+    <li><span class="n" data-stat="rejected">1,330</span><span class="k">rejections, published</span></li>
     <li><span class="n" data-stat="verifiedAgainst">rc.6</span><span class="k">dsh version checked</span></li>
   </ul>
   <p class="fine" id="stats-note">Read live from the registries&rsquo; own
   <a href="/awesome-dsh-plugins/stats.json">stats.json</a>; last sweep
-  <span data-stat="updated">2026-08-15</span>. This page has no numbers of its own.</p>
+  <span data-stat="updated">2026-08-18</span>. This page has no numbers of its own.</p>
 
   <div class="cta">
     <a class="btn" href="/awesome-dsh-plugins/">browse plugins</a>
@@ -316,15 +323,15 @@ footer nav { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 0.5rem
 </section>
 
 <div class="term">
-  <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="title">memory plugins, on npm, by stars &middot; run 2026-08-15</span></div>
+  <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="title">memory plugins, on npm, by stars &middot; run 2026-08-18</span></div>
 <pre><code><span class="p">$</span> curl -s https://dsh.works/awesome-dsh-plugins/plugins.json \
     | jq -r <span class="w">'.plugins[] | select(.tags[]?=="memory" and .npm)</span>
 <span class="w">        | "\(.stars)\t\(.npm)\t\(.verifiedAgainst)"'</span> <span class="k">|</span> sort -rn <span class="k">|</span> head -4
 
-<span class="c">44   @zseven-w/dsh-noema               0.1.0-rc.6
-42   dsh-context                       0.1.0-rc.6
-6    dsh-hxyz-archived-conversations   0.1.0-rc.6
-6    dsh-continual-evolve              0.1.0-rc.6</span></code></pre>
+<span class="c">242  dsh-context                       0.1.0-rc.6
+106  @zseven-w/dsh-noema               0.1.0-rc.6
+57   dsh-memento                       0.1.0-rc.6
+18   @furongjun1999/dsh-memory         0.1.0-rc.6</span></code></pre>
 </div>
 
 <p class="fine">A README cannot answer that question, and a scrape with no schema
@@ -336,17 +343,21 @@ cannot be trusted to. Both registries also ship an embeddable
 <ul class="grid two">
   <li>
     <p class="n">01</p>
-    <h3>Dated, or it does not count</h3>
-    <p>Every entry carries <code>lastVerified</code> and
-    <code>verifiedAgainst</code> &ndash; the exact dsh release it loaded under.
-    The harness is a developer preview that promises breaking changes and has
-    already removed one manifest format with no migration. An undated
+    <h3>Every row names its proof</h3>
+    <p>An entry carries <code>evidence</code>: the file that proves it installs,
+    as <code>path#key</code> &ndash; <code>package.json#dsh.bundle</code>,
+    <code>skills/reviewer/SKILL.md#frontmatter</code>. It is a link you open,
+    not a badge you trust. Twenty other directories say
+    <em>verified</em>; none of them will tell you what they read. Entries also
+    carry <code>lastVerified</code> and <code>verifiedAgainst</code>, the exact
+    dsh release checked &ndash; the harness is a preview that has already
+    removed one manifest format with no migration, so an undated
     &ldquo;works with dsh&rdquo; is a rumour.</p>
   </li>
   <li>
     <p class="n">02</p>
     <h3>The rejections are published too</h3>
-    <p><span data-stat="rejected">1,202</span> repos were swept and left out, each
+    <p><span data-stat="rejected">1,330</span> repos were swept and left out, each
     with a one-line reason in
     <a href="https://github.com/dshworks/awesome-dsh-plugins/blob/main/data/rejected.json">rejected.json</a>.
     Rejections of judgment are permanent; rejections of fact carry a
@@ -357,8 +368,8 @@ cannot be trusted to. Both registries also ship an embeddable
   <li>
     <p class="n">03</p>
     <h3>Themes you can actually see</h3>
-    <p><span data-stat="preview">145</span> of
-    <span data-stat="themes">224</span> themes carry a real screenshot, and
+    <p><span data-stat="preview">149</span> of
+    <span data-stat="themes">325</span> themes carry a real screenshot, and
     <span data-stat="previewCss">39</span> ship a CSS override sheet that the
     <a href="/awesome-dsh-themes/">gallery renders live</a>
     &ndash; the dsh Web UI chrome, in the page, wearing that theme. Picking a
@@ -377,7 +388,7 @@ cannot be trusted to. Both registries also ship an embeddable
 
 <h2 id="plugins">The plugin registry</h2>
 <p><a href="https://github.com/dshworks/awesome-dsh-plugins">awesome-dsh-plugins</a>
-sorts <span data-stat="plugins">5,173</span> entries by form factor
+sorts <span data-stat="plugins">6,290</span> entries by form factor
 (<code>bundle</code>, <code>plugin</code>, <code>skill</code>, <code>tool</code>)
 and by <span data-stat="tags">17</span> functional tags, with
 <span data-stat="npm">584</span> installable straight from npm.
@@ -403,9 +414,10 @@ verified against &ndash; and the official docs are the place for stable
 reference.</p>
 
 <h2 id="ours">What we ship ourselves</h2>
-<p>Two plugins, in the registry on the same terms as everyone else&rsquo;s &ndash;
-same schema, same proof file, same verified-against date. Reading five thousand
-plugins taught us what was missing.</p>
+<p>Three plugins, in the registry on the same terms as everyone else&rsquo;s
+&ndash; same schema, same proof file, same verified-against date. Reading six
+thousand plugins taught us what was missing. No other directory in this
+ecosystem ships one.</p>
 
 <ul class="grid two">
   <li>
@@ -423,6 +435,14 @@ plugins taught us what was missing.</p>
     command or a growing file arrive as batched, budgeted notices &ndash; plus a
     daemon host, because no stock dsh surface keeps an agent standing.</p>
   </li>
+  <li>
+    <p class="n">crew</p>
+    <h3><a href="/dsh-crew/">dsh-crew</a></h3>
+    <p>Claude Code and Codex, each in a real terminal pane inside your dsh
+    session &ndash; typeable, with five tools so the dsh agent seats them, hands
+    them work, and reads their screens.
+    <a href="/dsh-crew/">The site rebuilds the tab in the page</a>.</p>
+  </li>
 </ul>
 
 <h2 id="data">Use it as an API</h2>
@@ -433,7 +453,7 @@ the source of truth; every README and gallery on this site is generated from it.
 <table>
 <thead><tr><th>URL</th><th>What</th></tr></thead>
 <tbody>
-<tr><td><code><a href="/awesome-dsh-plugins/plugins.json">dsh.works/awesome-dsh-plugins/plugins.json</a></code></td><td>Every plugin entry, with schema fields.</td></tr>
+<tr><td><code><a href="/awesome-dsh-plugins/plugins.json">dsh.works/awesome-dsh-plugins/plugins.json</a></code></td><td>Every plugin entry, each with the <code>evidence</code> file that proves it installs.</td></tr>
 <tr><td><code><a href="/awesome-dsh-plugins/stats.json">dsh.works/awesome-dsh-plugins/stats.json</a></code></td><td>Counts only, for a status line or a badge.</td></tr>
 <tr><td><code><a href="https://github.com/dshworks/awesome-dsh-plugins/blob/main/data/rejected.json">…/data/rejected.json</a></code></td><td>What was left out, why, and when it gets rechecked.</td></tr>
 <tr><td><code><a href="https://github.com/dshworks/awesome-dsh-plugins/blob/main/data/schema.json">…/data/schema.json</a></code></td><td>The contract every entry validates against.</td></tr>
