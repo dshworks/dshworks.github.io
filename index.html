@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>dsh.works</title>
+<title>dsh.works — should you install it?</title>
+<meta name="description" content="For each of 6,290 DeepSeek Harness plugins: the file that proves it installs, whether anyone has touched it since, and how crowded the shelf is. Community-run, not affiliated with DeepSeek.">
 <link rel="canonical" href="https://dsh.works/">
-<meta name="robots" content="noindex">
 <meta http-equiv="refresh" content="0; url=https://dsh.works/">
 <!--
   This file is the fallback, not the front door.
@@ -16,15 +16,38 @@
   and /dsh-crew/ are untouched and still served from GitHub Pages.
 
   A Cloudflare route pattern is matched against the whole URL including the
-  query string, and wrangler normalises a query-tolerant pattern away — so
-  "dsh.works/?utm_source=x" misses the Worker route and arrives HERE. Leaving
-  the old landing page at this address meant a shared link with a tracking
-  parameter served a page frozen on the day the Worker shipped. A redirect to
-  the bare root is the honest answer: it terminates (the Worker owns "/"), it
-  drops nothing a reader wanted, and it cannot go stale.
+  query string, so "dsh.works/?utm_source=x" misses the Worker route and
+  arrives HERE. The query-tolerant pattern "dsh.works/?*" is not a way out:
+  the API now rejects it outright (error 10022) and used to accept it and
+  silently drop it. A greedy "dsh.works/*" would work and would swallow the
+  four project sites above, which the Worker cannot proxy back — the github.io
+  origin 301s to dsh.works for every path, so forwarding loops.
 
-  The page this replaced is kept verbatim at _archive/index-2026-08-18.html.
+  So this page has to be good at one job: a link someone shared, with a
+  tracking parameter on it, landing here instead of on the site.
+
+  That makes the metadata the point. Social unfurlers read the HTML they are
+  given and do not follow a meta refresh, so without the tags below every link
+  posted to Slack, Discord, X or HN rendered as a bare "dsh.works" with no
+  description — the site's best traffic arriving looking like a parked domain.
+  The tags are duplicated from the Worker's own <head> deliberately; two files
+  is the cost of the routing split, and a wrong preview is worse than a
+  duplicated string.
+
+  No robots noindex: the canonical already points at the real page, and some
+  unfurlers treat noindex as a reason to render nothing at all.
+
+  The landing page this replaced is kept verbatim at
+  _archive/index-2026-08-18.html.
 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="dsh.works">
+<meta property="og:url" content="https://dsh.works/">
+<meta property="og:title" content="dsh.works — should you install it?">
+<meta property="og:description" content="Twenty-two directories list DeepSeek Harness plugins and all of them answer what exists. This one answers whether to install it: the file that proves the install path, measured against a topic where 93% of repos were created the week dsh shipped.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="dsh.works — should you install it?">
+<meta name="twitter:description" content="For each of 6,290 DeepSeek Harness plugins: the receipt that proves it installs, and what the shelf around it looks like.">
 <style>
   html { color-scheme: light dark; }
   body { background: #000; background: light-dark(#fbfaf7, #000);
@@ -36,5 +59,8 @@
 </head>
 <body>
 <p>&rarr; <a href="https://dsh.works/">dsh.works</a></p>
+<!-- Ahead of the meta refresh for a reader with JS, and harmless without it.
+     replace() so the stub does not sit in the back button. -->
+<script>location.replace("https://dsh.works/");</script>
 </body>
 </html>
